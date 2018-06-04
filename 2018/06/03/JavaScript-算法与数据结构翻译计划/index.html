@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="JavaScript 算法与数据结构翻译自 github.com/trekhleb/javascript-algorithms包含了多种基于 JavaScript 的算法与数据结构。 每种算法和数据结构都有自己的 README 并提供相关说明以及进一步阅读和 YouTube 视频。 Read this in other languages:English,繁體中文 数据结构数据结构是在计算机中组织">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 算法与数据结构翻译计划">
+<meta property="og:url" content="https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/index.html">
+<meta property="og:site_name" content="前端笔记">
+<meta property="og:description" content="JavaScript 算法与数据结构翻译自 github.com/trekhleb/javascript-algorithms包含了多种基于 JavaScript 的算法与数据结构。 每种算法和数据结构都有自己的 README 并提供相关说明以及进一步阅读和 YouTube 视频。 Read this in other languages:English,繁體中文 数据结构数据结构是在计算机中组织">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://github.com/trekhleb/javascript-algorithms/blob/master/assets/big-o-graph.png?raw=true">
+<meta property="og:updated_time" content="2018-06-04T13:23:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 算法与数据结构翻译计划">
+<meta name="twitter:description" content="JavaScript 算法与数据结构翻译自 github.com/trekhleb/javascript-algorithms包含了多种基于 JavaScript 的算法与数据结构。 每种算法和数据结构都有自己的 README 并提供相关说明以及进一步阅读和 YouTube 视频。 Read this in other languages:English,繁體中文 数据结构数据结构是在计算机中组织">
+<meta name="twitter:image" content="https://github.com/trekhleb/javascript-algorithms/blob/master/assets/big-o-graph.png?raw=true">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>JavaScript 算法与数据结构翻译计划</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/06/04/链表/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/06/02/内网机野路子切换Node版本/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&text=JavaScript 算法与数据结构翻译计划"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&title=JavaScript 算法与数据结构翻译计划"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&is_video=false&description=JavaScript 算法与数据结构翻译计划"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript 算法与数据结构翻译计划&body=Check out this article: https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&title=JavaScript 算法与数据结构翻译计划"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&title=JavaScript 算法与数据结构翻译计划"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&title=JavaScript 算法与数据结构翻译计划"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&title=JavaScript 算法与数据结构翻译计划"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&name=JavaScript 算法与数据结构翻译计划&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-算法与数据结构"><span class="toc-number">1.</span> <span class="toc-text">JavaScript 算法与数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-number">1.1.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法"><span class="toc-number">1.2.</span> <span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法主题"><span class="toc-number">1.2.1.</span> <span class="toc-text">算法主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法范式"><span class="toc-number">1.2.2.</span> <span class="toc-text">算法范式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用本仓库"><span class="toc-number">1.3.</span> <span class="toc-text">如何使用本仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有用的信息"><span class="toc-number">1.4.</span> <span class="toc-text">有用的信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引用"><span class="toc-number">1.4.1.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大O符号"><span class="toc-number">1.4.2.</span> <span class="toc-text">大O符号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构操作的复杂性"><span class="toc-number">1.4.3.</span> <span class="toc-text">数据结构操作的复杂性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组排序算法的复杂性"><span class="toc-number">1.4.4.</span> <span class="toc-text">数组排序算法的复杂性</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        JavaScript 算法与数据结构翻译计划
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">前端笔记</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-06-03T15:07:42.000Z" itemprop="datePublished">2018-06-03</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="JavaScript-算法与数据结构"><a href="#JavaScript-算法与数据结构" class="headerlink" title="JavaScript 算法与数据结构"></a>JavaScript 算法与数据结构</h1><p>翻译自 <a href="https://github.com/trekhleb/javascript-algorithms" target="_blank" rel="noopener">github.com/trekhleb/javascript-algorithms</a><br>包含了多种基于 JavaScript 的算法与数据结构。</p>
+<p>每种算法和数据结构都有自己的 README 并提供相关说明以及进一步阅读和 YouTube 视频。</p>
+<p><em>Read this in other languages:</em><br><a href="https://github.com/trekhleb/javascript-algorithms/" target="_blank" rel="noopener"><em>English</em></a>,<br><a href="https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-TW.md" target="_blank" rel="noopener">繁體中文</a></p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>数据结构是在计算机中组织和存储数据的一种特殊方式，它可以高效地访问和修改数据。更确切地说，数据结构是数据值的集合，它们之间的关系、函数或操作可以应用于数据。</p>
+<ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/linked-list" target="_blank" rel="noopener">链表</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/queue" target="_blank" rel="noopener">队列</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/stack" target="_blank" rel="noopener">栈</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/hash-table" target="_blank" rel="noopener">哈希表</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/heap" target="_blank" rel="noopener">堆</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/priority-queue" target="_blank" rel="noopener">优先队列</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/trie" target="_blank" rel="noopener">字典树</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/tree" target="_blank" rel="noopener">树</a><ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/tree/binary-search-tree" target="_blank" rel="noopener">二分查找</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/tree/avl-tree" target="_blank" rel="noopener">AVL 树</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/tree/red-black-tree" target="_blank" rel="noopener">红黑树</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/graph" target="_blank" rel="noopener">图</a> (有向图与无向图)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/disjoint-set" target="_blank" rel="noopener">并查集</a></li>
+</ul>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>算法是如何解决一类问题的明确规范。 算法是一组精确定义操作序列的规则。</p>
+<h3 id="算法主题"><a href="#算法主题" class="headerlink" title="算法主题"></a>算法主题</h3><ul>
+<li><strong>数学</strong><ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/math/factorial" target="_blank" rel="noopener">阶乘</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/math/fibonacci" target="_blank" rel="noopener">斐波那契数</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/math/primality-test" target="_blank" rel="noopener">素数检测</a> (排除法)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/math/euclidean-algorithm" target="_blank" rel="noopener">欧几里得算法</a> - 计算最大公约数（GCD）</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/math/least-common-multiple" target="_blank" rel="noopener">最小公倍数</a> (LCM)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/math/integer-partition" target="_blank" rel="noopener">整数拆分</a></li>
+</ul>
+</li>
+<li><strong>集合</strong><ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/cartesian-product" target="_blank" rel="noopener">笛卡尔积</a> - 多集合结果</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/power-set" target="_blank" rel="noopener">幂集</a> - 该集合的所有子集</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/permutations" target="_blank" rel="noopener">排列</a> (有/无重复)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/combinations" target="_blank" rel="noopener">组合</a> (有/无重复)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/fisher-yates" target="_blank" rel="noopener">洗牌算法</a> - 随机置换有限序列</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/longest-common-subsequnce" target="_blank" rel="noopener">最长公共子序列</a> (LCS)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/longest-increasing-subsequence" target="_blank" rel="noopener">最长递增子序列</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/shortest-common-supersequence" target="_blank" rel="noopener">Shortest Common Supersequence</a> (SCS)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/knapsack-problem" target="_blank" rel="noopener">背包问题</a> - “0/1” and “Unbound” ones</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/maximum-subarray" target="_blank" rel="noopener">最大子数列问题</a> - BF算法 与 动态编程</li>
+</ul>
+</li>
+<li><strong>字符串</strong><ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance" target="_blank" rel="noopener">莱温斯坦距离</a> - 两个序列之间的最小编辑距离</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/hamming-distance" target="_blank" rel="noopener">汉明距离</a> - 符号不同的位置数</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/knuth-morris-pratt" target="_blank" rel="noopener">克努斯-莫里斯-普拉特算法</a> - 子串搜索</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/rabin-karp" target="_blank" rel="noopener">字符串快速查找</a> - 子串搜索</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/longest-common-substring" target="_blank" rel="noopener">最长公共子串</a></li>
+</ul>
+</li>
+<li><strong>搜索</strong><ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/search/binary-search" target="_blank" rel="noopener">二分查找</a></li>
+</ul>
+</li>
+<li><strong>排序</strong><ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/bubble-sort" target="_blank" rel="noopener">冒泡排序</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/selection-sort" target="_blank" rel="noopener">选择排序</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/insertion-sort" target="_blank" rel="noopener">插入排序</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/heap-sort" target="_blank" rel="noopener">堆排序</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/merge-sort" target="_blank" rel="noopener">归并排序</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/quick-sort" target="_blank" rel="noopener">快速排序</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/shell-sort" target="_blank" rel="noopener">希尔排序</a></li>
+</ul>
+</li>
+<li><strong>树</strong>  <ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/depth-first-search" target="_blank" rel="noopener">深度优先搜索</a> (DFS)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/breadth-first-search" target="_blank" rel="noopener">广度优先搜索</a> (BFS)</li>
+</ul>
+</li>
+<li><strong>图</strong><ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/depth-first-search" target="_blank" rel="noopener">深度优先搜索</a> (DFS)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/breadth-first-search" target="_blank" rel="noopener">广度优先搜索</a> (BFS)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/dijkstra" target="_blank" rel="noopener">戴克斯特拉算法m</a> - 找到所有图顶点的最短路径</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/bellman-ford" target="_blank" rel="noopener">贝尔曼-福特算法</a> - 找到所有图顶点的最短路径</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/detect-cycle" target="_blank" rel="noopener">判圈算法</a> - 对于有向图和无向图（基于DFS和不相交集的版本）</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/prim" target="_blank" rel="noopener">普林演算法</a> - 寻找加权无向图的最小生成树（MST）</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/kruskal" target="_blank" rel="noopener">克鲁斯克尔演算法</a> - 寻找加权无向图的最小生成树（MST）</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/topological-sorting" target="_blank" rel="noopener">拓撲排序</a> - DFS 方法</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/articulation-points" target="_blank" rel="noopener">关节点</a> - Tarjan算法（基于DFS）</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/bridges" target="_blank" rel="noopener">桥</a> - 基于DFS的算法</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/eulerian-path" target="_blank" rel="noopener">欧拉路径与一笔画问题</a> - Fleury的算法 - 一次访问每个边缘</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/hamiltonian-cycle" target="_blank" rel="noopener">哈密顿图</a> - 恰好访问每个顶点一次</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/strongly-connected-components" target="_blank" rel="noopener">强连通分量</a> - Kosaraju算法</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/travelling-salesman" target="_blank" rel="noopener">旅行推销员问题</a> - 尽可能以最短的路线访问每个城市并返回原始城市</li>
+</ul>
+</li>
+<li><strong>未分类</strong>  <ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/hanoi-tower" target="_blank" rel="noopener">汉诺塔</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens" target="_blank" rel="noopener">八皇后问题</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/knight-tour" target="_blank" rel="noopener">骑士巡逻</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="算法范式"><a href="#算法范式" class="headerlink" title="算法范式"></a>算法范式</h3><p>算法范式是基于类的设计的通用方法或方法的算法。 这是一个比算法概念更高的抽象，就像一个<br>算法是比计算机程序更高的抽象。</p>
+<ul>
+<li><p><strong>BF算法</strong> - 查找所有可能性并选择最佳解决方案</p>
+<ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/maximum-subarray" target="_blank" rel="noopener">最大子数列</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/travelling-salesman" target="_blank" rel="noopener">旅行推销员问题</a> - 尽可能以最短的路线访问每个城市并返回原始城市</li>
+</ul>
+</li>
+<li><p><strong>贪心法</strong> - 在当前选择最佳选项，不考虑以后情况</p>
+<ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/knapsack-problem" target="_blank" rel="noopener">背包问题</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/dijkstra" target="_blank" rel="noopener">戴克斯特拉算法</a> - 找到所有图顶点的最短路径</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/prim" target="_blank" rel="noopener">普里姆算法</a> - 寻找加权无向图的最小生成树（MST）</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/kruskal" target="_blank" rel="noopener">克鲁斯卡尔算法</a> - 寻找加权无向图的最小生成树（MST）</li>
+</ul>
+</li>
+<li><strong>分治法</strong> - 将问题分成较小的部分，然后解决这些部分<ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/search/binary-search" target="_blank" rel="noopener">二分查找</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/hanoi-tower" target="_blank" rel="noopener">汉诺塔</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/math/euclidean-algorithm" target="_blank" rel="noopener">欧几里得算法</a> - 计算最大公约数（GCD）</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/permutations" target="_blank" rel="noopener">排列</a> (有/无重复)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/combinations" target="_blank" rel="noopener">组合</a> (有/无重复)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/merge-sort" target="_blank" rel="noopener">归并排序</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sorting/quick-sort" target="_blank" rel="noopener">Quicksort</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/tree/depth-first-search" target="_blank" rel="noopener">树深度优先搜索</a> (DFS)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/depth-first-search" target="_blank" rel="noopener">图深度优先搜索</a> (DFS)</li>
+</ul>
+</li>
+<li><strong>动态编程</strong> - 使用以前找到的子解决方案构建解决方案<ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/math/fibonacci" target="_blank" rel="noopener">斐波那契数</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance" target="_blank" rel="noopener">莱温斯坦距离</a> - 两个序列之间的最小编辑距离</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/longest-common-subsequnce" target="_blank" rel="noopener">最长公共子序列</a> (LCS)</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/longest-common-substring" target="_blank" rel="noopener">最长公共子串</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/longest-increasing-subsequence" target="_blank" rel="noopener">最长递增子序列</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/shortest-common-supersequence" target="_blank" rel="noopener">最短公共子序列</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/knapsack-problem" target="_blank" rel="noopener">0-1背包问题</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/math/integer-partition" target="_blank" rel="noopener">整数拆分</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/sets/maximum-subarray" target="_blank" rel="noopener">最大子数列</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/bellman-ford" target="_blank" rel="noopener">贝尔曼-福特算法</a> - 找到所有图顶点的最短路径</li>
+</ul>
+</li>
+<li><strong>回溯法</strong> - 类似于 BF算法 试图产生所有可能的解决方案，但每次生成解决方案测试如果它满足所有条件，那么只有继续生成后续解决方案。 否则回溯并继续寻找不同路径的解决方案。<ul>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/graph/hamiltonian-cycle" target="_blank" rel="noopener">哈密顿图</a> - 恰好访问每个顶点一次</li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/n-queens" target="_blank" rel="noopener">八皇后问题</a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/knight-tour" target="_blank" rel="noopener">骑士巡逻</a></li>
+</ul>
+</li>
+<li><strong>B &amp; B</strong></li>
+</ul>
+<h2 id="如何使用本仓库"><a href="#如何使用本仓库" class="headerlink" title="如何使用本仓库"></a>如何使用本仓库</h2><p><strong>安装依赖</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p><strong>执行测试</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm test</span><br></pre></td></tr></table></figure></p>
+<p><strong>按照名称执行测试</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm test -- -t &apos;LinkedList&apos;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Playground</strong></p>
+<p>你可以在<code>./src/playground/playground.js</code>文件中操作数据结构与算法，并在<code>./src/playground/__test__/playground.test.js</code>中编写测试。</p>
+<p>然后，只需运行以下命令来测试你的 Playground 是否按无误:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm test -- -t &apos;playground&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="有用的信息"><a href="#有用的信息" class="headerlink" title="有用的信息"></a>有用的信息</h2><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p><a href="https://www.youtube.com/playlist?list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8" target="_blank" rel="noopener">▶ YouTube</a></p>
+<h3 id="大O符号"><a href="#大O符号" class="headerlink" title="大O符号"></a>大O符号</h3><p>大O符号中指定的算法的增长顺序。</p>
+<p><img src="https://github.com/trekhleb/javascript-algorithms/blob/master/assets/big-o-graph.png?raw=true" alt="Big O graphs"></p>
+<p>源: <a href="http://bigocheatsheet.com/" target="_blank" rel="noopener">Big O Cheat Sheet</a>.</p>
+<p>以下是一些最常用的 大O标记法 列表以及它们与不同大小输入数据的性能比较。</p>
+<table>
+<thead>
+<tr>
+<th>大O标记法</th>
+<th>计算10个元素</th>
+<th>计算100个元素</th>
+<th>计算1000个元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>O(1)</strong></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>O(log N)</strong></td>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+</tr>
+<tr>
+<td><strong>O(N)</strong></td>
+<td>10</td>
+<td>100</td>
+<td>1000</td>
+</tr>
+<tr>
+<td><strong>O(N log N)</strong></td>
+<td>30</td>
+<td>600</td>
+<td>9000</td>
+</tr>
+<tr>
+<td><strong>O(N^2)</strong></td>
+<td>100</td>
+<td>10000</td>
+<td>1000000</td>
+</tr>
+<tr>
+<td><strong>O(2^N)</strong></td>
+<td>1024</td>
+<td>1.26e+29</td>
+<td>1.07e+301</td>
+</tr>
+<tr>
+<td><strong>O(N!)</strong></td>
+<td>3628800</td>
+<td>9.3e+157</td>
+<td>4.02e+2567</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数据结构操作的复杂性"><a href="#数据结构操作的复杂性" class="headerlink" title="数据结构操作的复杂性"></a>数据结构操作的复杂性</h3><table>
+<thead>
+<tr>
+<th>数据结构</th>
+<th style="text-align:center">连接</th>
+<th style="text-align:center">查找</th>
+<th style="text-align:center">插入</th>
+<th style="text-align:center">删除</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>数组</strong></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+</tr>
+<tr>
+<td><strong>栈</strong></td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td><strong>队列</strong></td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td><strong>链表</strong></td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td><strong>哈希表</strong></td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+</tr>
+<tr>
+<td><strong>二分查找树</strong></td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n</td>
+</tr>
+<tr>
+<td><strong>B树</strong></td>
+<td style="text-align:center">log(n)</td>
+<td style="text-align:center">log(n)</td>
+<td style="text-align:center">log(n)</td>
+<td style="text-align:center">log(n)</td>
+</tr>
+<tr>
+<td><strong>红黑树</strong></td>
+<td style="text-align:center">log(n)</td>
+<td style="text-align:center">log(n)</td>
+<td style="text-align:center">log(n)</td>
+<td style="text-align:center">log(n)</td>
+</tr>
+<tr>
+<td><strong>AVL树</strong></td>
+<td style="text-align:center">log(n)</td>
+<td style="text-align:center">log(n)</td>
+<td style="text-align:center">log(n)</td>
+<td style="text-align:center">log(n)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数组排序算法的复杂性"><a href="#数组排序算法的复杂性" class="headerlink" title="数组排序算法的复杂性"></a>数组排序算法的复杂性</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">最优</th>
+<th style="text-align:center">平均</th>
+<th style="text-align:center">最坏</th>
+<th style="text-align:center">内存</th>
+<th style="text-align:center">稳定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>冒泡排序</strong></td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n^2</td>
+<td style="text-align:center">n^2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td><strong>插入排序</strong></td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">n^2</td>
+<td style="text-align:center">n^2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td><strong>选择排序</strong></td>
+<td style="text-align:center">n^2</td>
+<td style="text-align:center">n^2</td>
+<td style="text-align:center">n^2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td><strong>堆排序</strong></td>
+<td style="text-align:center">n log(n)</td>
+<td style="text-align:center">n log(n)</td>
+<td style="text-align:center">n log(n)</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td><strong>归并排序</strong></td>
+<td style="text-align:center">n log(n)</td>
+<td style="text-align:center">n log(n)</td>
+<td style="text-align:center">n log(n)</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td><strong>快速排序</strong></td>
+<td style="text-align:center">n log(n)</td>
+<td style="text-align:center">n log(n)</td>
+<td style="text-align:center">n^2</td>
+<td style="text-align:center">log(n)</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td><strong>希尔排序</strong></td>
+<td style="text-align:center">n log(n)</td>
+<td style="text-align:center">取决于差距序列</td>
+<td style="text-align:center">n (log(n))^2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">No</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-算法与数据结构"><span class="toc-number">1.</span> <span class="toc-text">JavaScript 算法与数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-number">1.1.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法"><span class="toc-number">1.2.</span> <span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法主题"><span class="toc-number">1.2.1.</span> <span class="toc-text">算法主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法范式"><span class="toc-number">1.2.2.</span> <span class="toc-text">算法范式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用本仓库"><span class="toc-number">1.3.</span> <span class="toc-text">如何使用本仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有用的信息"><span class="toc-number">1.4.</span> <span class="toc-text">有用的信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引用"><span class="toc-number">1.4.1.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大O符号"><span class="toc-number">1.4.2.</span> <span class="toc-text">大O符号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据结构操作的复杂性"><span class="toc-number">1.4.3.</span> <span class="toc-text">数据结构操作的复杂性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组排序算法的复杂性"><span class="toc-number">1.4.4.</span> <span class="toc-text">数组排序算法的复杂性</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&text=JavaScript 算法与数据结构翻译计划"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&title=JavaScript 算法与数据结构翻译计划"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&is_video=false&description=JavaScript 算法与数据结构翻译计划"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JavaScript 算法与数据结构翻译计划&body=Check out this article: https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&title=JavaScript 算法与数据结构翻译计划"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&title=JavaScript 算法与数据结构翻译计划"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&title=JavaScript 算法与数据结构翻译计划"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&title=JavaScript 算法与数据结构翻译计划"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://webfe.cn/2018/06/03/JavaScript-算法与数据结构翻译计划/&name=JavaScript 算法与数据结构翻译计划&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 wuchuan
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
